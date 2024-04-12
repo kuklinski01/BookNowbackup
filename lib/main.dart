@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'seat_selection.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,41 +13,52 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Movie Ticket Booking',
       theme: ThemeData(
-        brightness: Brightness.dark, // Set the brightness to dark
-        primarySwatch: Colors.blue, // Set the primary color to blue
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => MoviePosterPage(),
+        '/': (context) => LandingPage(),
         '/booking': (context) => BookingPage(),
       },
     );
   }
 }
 
-class MoviePosterPage extends StatelessWidget {
+class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Movie Poster'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.network( 'https://dl.dropboxusercontent.com/scl/fi/o3fplq18o9ebclq4q6hzu/poster.jpeg?rlkey=xckka23q55ukwbgudxfns744w&dl=0', // Replace with actual image URL
+            Image.network(
+              'https://dl.dropboxusercontent.com/scl/fi/o3fplq18o9ebclq4q6hzu/poster.jpeg?rlkey=xckka23q55ukwbgudxfns744w&dl=0',
               width: 200,
               height: 300,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/booking');
-              },
-              child: Text('Book Tickets'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Movie Description: Add your movie description here',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/booking');
+                },
+                child: Text('Book Tickets'),
+              ),
             ),
           ],
         ),
@@ -60,25 +74,13 @@ class BookingPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Book Tickets'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Select Seats for the Show',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            // Add seat selection UI here
-            ElevatedButton(
-              onPressed: () {
-                // Implement booking logic
-              },
-              child: Text('Confirm Booking'),
-            ),
-          ],
-        ),
+      body: SeatSelection(
+        onSeatSelected: (selectedSeatCount) {
+          // Update total price or perform other actions based on selected seat count
+        },
+        
       ),
+      
     );
   }
 }
