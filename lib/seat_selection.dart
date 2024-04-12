@@ -32,25 +32,51 @@ class _SeatSelectionState extends State<SeatSelection> {
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Wrap(
-        alignment: WrapAlignment.center,
-        children: List.generate(56, (index) {
-          return GestureDetector(
-            onTap: () => _toggleSeat(index),
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                width: 20,
-                height: 20,
-                decoration: BoxDecoration(
-                  color: _selectedSeats[index] ? Colors.blue : Colors.grey[300],
-                  border: Border.all(color: Colors.black),
-                  borderRadius: BorderRadius.circular(5),
+      child: Row(
+        children: [
+          SizedBox(width: 30),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              for (int i = 1; i <= 8; i++) 
+                Text(
+                  'Row $i',
+                  style: TextStyle(fontSize: 12),
                 ),
+            ],
+          ),
+          SizedBox(width: 10),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (int i = 1; i <= 56; i++)
+                    GestureDetector(
+                      onTap: () => _toggleSeat(i - 1),
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: _selectedSeats[i - 1] ? Colors.blue : Colors.grey[300],
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'S$i',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
-          );
-        }),
+          ),
+        ],
       ),
     );
   }
