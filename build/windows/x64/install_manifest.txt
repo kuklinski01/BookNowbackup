@@ -1,0 +1,15 @@
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/icudtl.dat
+C:/Users/abils/project/build/windows/x64/runner/Debug/flutter_windows.dll
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin.json
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.css
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.html
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/packages/youtube_player_flutter/assets/speedometer.webp
+C:/Users/abils/project/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag
