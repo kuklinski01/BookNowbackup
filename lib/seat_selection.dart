@@ -25,53 +25,61 @@ class _SeatSelectionState extends State<SeatSelection> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 400,
-      height: 400,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(width: 30),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              for (int i = 1; i <= 8; i++) 
-                Text(
-                  'Row $i',
-                  style: TextStyle(fontSize: 12),
-                ),
-            ],
-          ),
-          SizedBox(width: 10),
-          Expanded(
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(20),
+            ),
             child: SingleChildScrollView(
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 8,
-                runSpacing: 8,
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  for (int i = 1; i <= 56; i++)
-                    GestureDetector(
-                      onTap: () => _toggleSeat(i - 1),
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: _selectedSeats[i - 1] ? Colors.blue : Colors.grey[300],
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(5),
+                  Column(
+                    children: [
+                      for (int i = 1; i <= 8; i++) 
+                        Text(
+                          'Row $i',
+                          style: TextStyle(fontSize: 12),
                         ),
-                        child: Center(
-                          child: Text(
-                            'S$i',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+                    ],
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    width: 400,
+                    height: 300,
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 8,
+                        childAspectRatio: 1,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
                       ),
+                      itemCount: 56,
+                      itemBuilder: (BuildContext context, int index) {
+                        return GestureDetector(
+                          onTap: () => _toggleSeat(index),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: _selectedSeats[index] ? Colors.blue : Colors.grey[300],
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'S${index + 1}',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
+                  ),
                 ],
               ),
             ),
