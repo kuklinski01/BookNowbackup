@@ -42,8 +42,8 @@ class LandingPage extends StatelessWidget {
             Center(
               child: Image.network(
                 'https://dl.dropboxusercontent.com/scl/fi/o3fplq18o9ebclq4q6hzu/poster.jpeg?rlkey=xckka23q55ukwbgudxfns744w&dl=0',
-                width: 200,
-                height: 300,
+                width: 300,
+                height: 400,
                 fit: BoxFit.cover,
               ),
             ),
@@ -73,10 +73,10 @@ class LandingPage extends StatelessWidget {
             // Replace 'VIDEO_ID' with the actual YouTube video ID
             YoutubePlayer(
               controller: YoutubePlayerController(
-                initialVideoId: 'https://www.youtube.com/watch?v=XTvqmdXQ3CU&t=6s',
+                initialVideoId: 'XTvqmdXQ3CU&t=6s',
                 flags: YoutubePlayerFlags(
-                  autoPlay: true,
-                  mute: false,
+                  autoPlay: false,
+                  mute: true,
                 ),
               ),
               showVideoProgressIndicator: true,
