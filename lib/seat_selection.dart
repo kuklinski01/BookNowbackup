@@ -176,7 +176,7 @@ class _SeatSelectionState extends State<SeatSelection> {
                   },
                 ),
               ),
-              SizedBox(height: 20), // Add some spacing between the seats and the screen
+              SizedBox(height: 10), // Add some spacing between the seats and the screen
               // Theater Screen with Image
               Container(
                 width: 650,
@@ -221,7 +221,7 @@ class _SeatSelectionState extends State<SeatSelection> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20), // Add some space between the total amount and the button
+                        SizedBox(height: 10), // Add some space between the total amount and the button
                         ElevatedButton(
                           onPressed: () {
                             // Add logic here to handle booking tickets
