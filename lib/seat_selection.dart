@@ -199,7 +199,7 @@ class _SeatSelectionState extends State<SeatSelection> {
               Column(
                 children: [
                   Align(
-                    alignment: Alignment.bottomRight,
+                    alignment: Alignment.center,
                     child: Column(
                       children: [
                         Text(
