@@ -63,7 +63,7 @@ class _SeatSelectionState extends State<SeatSelection> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Center(
+        body: SingleChildScrollView( // Added SingleChildScrollView
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -118,7 +118,7 @@ class _SeatSelectionState extends State<SeatSelection> {
               Container(
                 width: 500,
                 height: 500,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
@@ -151,7 +151,7 @@ class _SeatSelectionState extends State<SeatSelection> {
                         child: Container(
                           decoration: BoxDecoration(
                             color: _selectedSeats[index]
-                                ? Color.fromARGB(255, 51, 163, 75)
+                                ? Color.fromARGB(255,51, 163, 75)
                                 : (_hoveredSeatIndex == index ? Colors.grey : Color(0xFF444451)),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(10),
@@ -176,7 +176,7 @@ class _SeatSelectionState extends State<SeatSelection> {
                   },
                 ),
               ),
-              SizedBox(height: 20), // Add some spacing between the seats and the screen
+              SizedBox(height: 10), // Add some spacing between the seats and the screen
               // Theater Screen with Image
               Container(
                 width: 650,
@@ -199,7 +199,7 @@ class _SeatSelectionState extends State<SeatSelection> {
               Column(
                 children: [
                   Align(
-                    alignment: Alignment.bottomRight,
+                    alignment: Alignment.center,
                     child: Column(
                       children: [
                         Text(
@@ -221,7 +221,7 @@ class _SeatSelectionState extends State<SeatSelection> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20), // Add some space between the total amount and the button
+                        SizedBox(height: 10), // Add some space between the total amount and the button
                         ElevatedButton(
                           onPressed: () {
                             // Add logic here to handle booking tickets
